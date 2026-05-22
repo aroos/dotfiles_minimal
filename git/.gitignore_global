@@ -17,7 +17,6 @@
 .aider*
 .claude/settings.local.json
 .claude/worktrees
-**/docs/superpowers/
 
 # log files
 *.*log
