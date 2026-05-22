@@ -7,6 +7,7 @@ alias be="bundle exec"
 alias g="git"
 
 # direnv
+
 eval "$(direnv hook zsh)"
 
 # mise

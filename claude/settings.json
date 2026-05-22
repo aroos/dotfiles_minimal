@@ -2,6 +2,7 @@
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
+      "Bash(acli:*)",
       "Bash(bundle:*)",
       "Bash(cat:*)",
       "Bash(find:*)",
@@ -32,7 +33,6 @@
       "Bash(gt sync:*)",
       "Bash(gt top:*)",
       "Bash(gt up:*)",
-      "Bash(acli:*)",
       "Bash(ls:*)",
       "Bash(npm:*)",
       "Bash(nx:*)",
@@ -44,7 +44,8 @@
       "Skill(jira-cli)",
       "Skill(sentry-cli)",
       "mcp__datadog__*"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "statusLine": {
@@ -52,15 +53,24 @@
     "command": "bash ~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
+    "betting@ws-claude-marketplace": false,
     "context7@claude-plugins-official": true,
-    "graphite@ws-claude-marketplace": true,
-    "ruby-lsp@claude-plugins-official": true,
-    "superpowers@ws-claude-marketplace": true,
     "devcontainer-setup@ws-claude-marketplace": true,
+    "graphite@ws-claude-marketplace": true,
     "incident-command@ws-claude-marketplace": true,
-    "betting@ws-claude-marketplace": true
+    "ruby-lsp@claude-plugins-official": true,
+    "superpowers@ws-claude-marketplace": false
   },
-  "gitAttribution": false,
-  "skipDangerousModePermissionPrompt": true
+  "extraKnownMarketplaces": {
+    "ws-claude-marketplace": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/wealthsimple/ws-claude-marketplace.git"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
+  "gitAttribution": false
 }
