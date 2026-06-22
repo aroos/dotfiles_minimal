@@ -4,14 +4,14 @@ Personal development environment configuration for macOS.
 
 ## Setup
 
-**Prerequisites:** macOS + [Homebrew](https://brew.sh/) + [1Password for SSH & Git](https://developer.1password.com/docs/ssh/).
+**Prerequisites:** macOS + [Homebrew](https://brew.sh/).
 
 ### Quick Installation
 
 1. Clone this repository:
 
 ```bash
-git clone git@github.com:cchawn/dotfiles.git ~/dotfiles
+git clone git@github.com:aroos/dotfiles_minimal.git ~/dotfiles
 cd ~/dotfiles
 ```
 
@@ -54,10 +54,8 @@ mise install
 ### Development Tools
 
 - 🔀 **git** + **diff-so-fancy** - Version control with readable diffs
-- 🐙 **gh** - GitHub CLI
 - 📋 **jq** - JSON processor
 - 🌲 **tree** - Directory listing
-- 🤖 **Claude Code** - agentic coding tool
 
 ## Troubleshooting
 

@@ -26,7 +26,7 @@ backup_existing() {
 create_symlink() {
     local source="$1"
     local target="$2"
-    
+
     log "Linking $source -> $target"
     backup_existing "$target"
     mkdir -p "$(dirname "$target")"
@@ -35,7 +35,7 @@ create_symlink() {
 
 main() {
     log "Starting dotfiles installation from $DOTFILES_DIR"
-    
+
     # Install Homebrew dependencies
     if command -v brew &> /dev/null; then
         log "Installing Homebrew dependencies..."
@@ -46,10 +46,10 @@ main() {
         echo "   Then run this script again."
         exit 1
     fi
-    
+
     # Zsh configuration
     create_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-    
+
     # Git configuration
     create_symlink "$DOTFILES_DIR/git/.gitconfig" "$HOME/.gitconfig"
     create_symlink "$DOTFILES_DIR/git/.gitignore_global" "$HOME/.gitignore_global"
@@ -69,7 +69,7 @@ main() {
     if [[ -f "$DOTFILES_DIR/private/git/user.gitconfig" ]]; then
         create_symlink "$DOTFILES_DIR/private/git/user.gitconfig" "$HOME/.gitconfig.user"
     fi
-    
+
     # Starship prompt
     create_symlink "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 
@@ -79,28 +79,6 @@ main() {
     # Mise version manager
     create_symlink "$DOTFILES_DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
 
-    # Claude Code CLI
-    if ! command -v claude &> /dev/null; then
-        read -p "🤖 Install Claude Code CLI? [y/N] " -n 1 -r
-        echo
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            log "Installing Claude Code CLI..."
-            curl -fsSL https://claude.ai/install.sh | bash
-        else
-            log "Skipping Claude Code CLI installation"
-        fi
-    else
-        log "Claude Code CLI already installed"
-    fi
-
-    # Zed editor
-    create_symlink "$DOTFILES_DIR/zed/settings.json" "$HOME/.config/zed/settings.json"
-
-    # Claude Code configuration (if it exists)
-    if [[ -f "$DOTFILES_DIR/claude/CLAUDE.md" ]]; then
-        create_symlink "$DOTFILES_DIR/claude" "$HOME/.claude"
-    fi
-    
     # Source private configurations if they exist
     if [[ -d "$DOTFILES_DIR/private" ]]; then
         log "Private directory found - symlinking private configs"
@@ -111,7 +89,7 @@ main() {
             fi
         done
     fi
-    
+
     log "Installation complete! 🎉"
     log ""
     log "Next steps:"

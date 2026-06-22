@@ -1,4 +1,5 @@
 # Core shell tools
+brew "bat"
 brew "direnv"
 brew "mise"
 brew "starship"
@@ -6,19 +7,28 @@ brew "zsh"
 
 # Git
 brew "diff-so-fancy"
-brew "gh"
 brew "git"
 
 # Terminal emulator
 cask "ghostty"
 
 # Editor
-# cask "zed"
+cask "antigravity"
+cask "antigravity-ide"
+brew "antigravity-cli"
 
 # Development tools
 brew "jq"
 brew "tree"
-# brew "1password-cli"
+cask "docker"
+
+# Password manager
+brew "bitwarden-cli"
+cask "bitwarden"
+
+# Misc
+cask "istat-menus"
+cask "microsoft-office"
 
 # Zsh plugins
 brew "fzf"
@@ -26,4 +36,7 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 # Fonts (for starship themes with nerd font icons)
-# cask "font-fira-code-nerd-font"
+cask "font-fira-code"
+cask "font-menlo-for-powerline"
+cask "font-lato"
+cask "font-meslo-lg-nerd-font"
