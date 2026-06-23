@@ -5,12 +5,12 @@
 # aliases
 alias be="bundle exec"
 alias g="git"
-
-# direnv
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/projects"
 
 eval "$(direnv hook zsh)"
 
-# mise
 eval "$(mise activate zsh)"
 
 eval "$(starship init zsh)"
