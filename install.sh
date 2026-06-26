@@ -39,7 +39,8 @@ main() {
     # Install Homebrew dependencies
     if command -v brew &> /dev/null; then
         log "Installing Homebrew dependencies..."
-        brew bundle --file="$DOTFILES_DIR/Brewfile"
+        create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
+        brew bundle
     else
         echo "⚠️  Homebrew not found. Please install Homebrew first:"
         echo "   /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
