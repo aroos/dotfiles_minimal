@@ -28,7 +28,6 @@ cask "bitwarden"
 
 # Misc
 cask "istat-menus"
-cask "microsoft-office"
 
 # Zsh plugins
 brew "fzf"
