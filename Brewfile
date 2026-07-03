@@ -28,6 +28,7 @@ cask "bitwarden"
 
 # Misc
 cask "istat-menus"
+cask "zen"
 
 # Zsh plugins
 brew "fzf"
