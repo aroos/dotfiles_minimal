@@ -15,12 +15,12 @@ cask "ghostty"
 # Editor
 cask "antigravity"
 cask "antigravity-ide"
-brew "antigravity-cli"
+cask "antigravity-cli"
 
 # Development tools
 brew "jq"
 brew "tree"
-cask "docker"
+cask "docker-desktop"
 
 # Password manager
 brew "bitwarden-cli"
