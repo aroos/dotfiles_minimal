@@ -32,3 +32,8 @@ source <(fzf --zsh)
 # Helper functions   #
 ######################
 
+# Source private/user-specific configurations if they exist
+if [[ -f "$HOME/.config/private/zshrc" ]]; then
+  source "$HOME/.config/private/zshrc"
+fi
+

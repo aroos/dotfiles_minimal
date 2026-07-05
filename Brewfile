@@ -29,6 +29,7 @@ cask "bitwarden"
 # Misc
 cask "istat-menus"
 cask "zen"
+cask "google-chrome"
 
 # Zsh plugins
 brew "fzf"
