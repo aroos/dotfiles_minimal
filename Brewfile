@@ -16,6 +16,7 @@ cask "ghostty"
 cask "antigravity"
 cask "antigravity-ide"
 cask "antigravity-cli"
+cask "visual-studio-code"
 
 # Development tools
 brew "jq"
@@ -30,6 +31,7 @@ cask "bitwarden"
 cask "istat-menus"
 cask "zen"
 cask "google-chrome"
+cask "adguard"
 
 # Zsh plugins
 brew "fzf"
