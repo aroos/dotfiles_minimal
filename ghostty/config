@@ -11,7 +11,7 @@ theme = Catppuccin Mocha
 
 # Cursor
 cursor-color = #dd00ff
-cursor-opacity = 0.5
+cursor-opacity = 1
 cursor-style = block
 cursor-style-blink = false
 cursor-text = #ff00fe
