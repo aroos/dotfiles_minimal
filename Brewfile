@@ -40,6 +40,7 @@ brew "zsh-syntax-highlighting"
 
 # Fonts (for starship themes with nerd font icons)
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 cask "font-menlo-for-powerline"
 cask "font-lato"
 cask "font-meslo-lg-nerd-font"
