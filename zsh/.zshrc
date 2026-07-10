@@ -37,3 +37,8 @@ if [[ -f "$HOME/.config/private/zshrc" ]]; then
   source "$HOME/.config/private/zshrc"
 fi
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/aroos/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
