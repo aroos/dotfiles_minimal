@@ -55,7 +55,7 @@ config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
   -- Split Panes
-  { key = '|', mods = 'LEADER|SHIFT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = '|', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = '-', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = 'x', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
 
@@ -72,7 +72,7 @@ config.keys = {
   { key = 'RightArrow', mods = 'LEADER', action = act.AdjustPaneSize { 'Right', 5 } },
 
   -- Tabs
-  { key = 't', mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = 'c', mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain' },
   { key = 'n', mods = 'LEADER', action = act.ActivateTabRelative(1) },
   { key = 'p', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
 
