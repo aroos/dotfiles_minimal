@@ -47,3 +47,11 @@ cask "font-fira-code-nerd-font"
 cask "font-menlo-for-powerline"
 cask "font-lato"
 cask "font-meslo-lg-nerd-font"
+
+# Window Management & Bar
+tap "nikitabobko/tap"
+cask "aerospace"
+tap "felixkratz/formulae"
+brew "sketchybar"
+cask "font-sketchybar-app-font"
+

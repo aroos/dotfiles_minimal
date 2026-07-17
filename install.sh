@@ -77,8 +77,20 @@ main() {
     # Ghostty terminal
     create_symlink "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
+    # WezTerm terminal
+    create_symlink "$DOTFILES_DIR/wezterm/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+
     # Mise version manager
     create_symlink "$DOTFILES_DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
+
+    # AeroSpace tiling window manager
+    create_symlink "$DOTFILES_DIR/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
+
+    # Sketchybar status bar
+    create_symlink "$DOTFILES_DIR/sketchybar/sketchybarrc" "$HOME/.config/sketchybar/sketchybarrc"
+    create_symlink "$DOTFILES_DIR/sketchybar/plugins" "$HOME/.config/sketchybar/plugins"
+    chmod +x "$DOTFILES_DIR/sketchybar/plugins"/* || true
+
 
     # Source private configurations if they exist
     if [[ -d "$DOTFILES_DIR/private" ]]; then

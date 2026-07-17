@@ -1,0 +1,118 @@
+# AeroSpace Configuration
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Window margins matching Catppuccin theme layout
+gaps.inner.horizontal = 8
+gaps.inner.vertical = 8
+gaps.outer.left = 8
+gaps.outer.bottom = 8
+gaps.outer.top = 37 # Space for Sketchybar
+gaps.outer.right = 8
+
+# Layouts
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+# Notify sketchybar when switching workspaces
+exec-on-workspace-change = [
+    '/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+]
+
+# Set focus follows mouse
+focus-follows-mouse = 'disabled'
+
+[mode.main.binding]
+# Focus window (Vim directions)
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move window (Vim directions)
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Layout toggles
+alt-f = 'layout floating tiling'
+alt-e = 'layout tiles horizontal vertical'
+alt-s = 'layout accordion horizontal vertical'
+
+# Workspace bindings (Named + Numeric fallback)
+alt-t = 'workspace T'
+alt-b = 'workspace B'
+alt-c = 'workspace C'
+alt-m = 'workspace M'
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+alt-shift-t = 'move-node-to-workspace T'
+alt-shift-b = 'move-node-to-workspace B'
+alt-shift-c = 'move-node-to-workspace C'
+alt-shift-m = 'move-node-to-workspace M'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+
+# Reload config
+alt-shift-r = 'reload-config'
+
+# ----------------- Window Rules & Routing -----------------
+
+# Float macOS System Settings
+[[on-window-detect]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+# Route Terminals to Workspace T
+[[on-window-detect]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace T'
+
+[[on-window-detect]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T'
+
+# Route Browsers to Workspace B
+[[on-window-detect]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace B'
+
+[[on-window-detect]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace B'
+
+# Route Editors to Workspace C
+[[on-window-detect]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace C'
+
+[[on-window-detect]]
+if.app-id = 'com.google.antigravity'
+run = 'move-node-to-workspace C'
+
+[[on-window-detect]]
+if.app-id = 'com.google.antigravity-ide'
+run = 'move-node-to-workspace C'
+
+# Route Mail to Workspace M
+[[on-window-detect]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace M'
