@@ -11,6 +11,7 @@ brew "git"
 
 # Terminal emulator
 cask "ghostty"
+cask "wezterm"
 
 # Editor
 cask "antigravity"
@@ -32,9 +33,11 @@ cask "istat-menus"
 cask "zen"
 cask "google-chrome"
 cask "adguard"
+cask "google-drive"
 
 # Zsh plugins
 brew "fzf"
+brew "zsh-completions"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
