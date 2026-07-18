@@ -14,7 +14,10 @@ sketchybar --bar height=32 \
                  margin=0 \
                  padding_left=12 \
                  padding_right=12 \
-                 y_offset=0
+                 y_offset=0 \
+                 topmost=window \
+                 notch_display_height=40
+
 
 # Defaults
 sketchybar --default icon.font="FiraCode Nerd Font Mono:Bold:13.0" \
@@ -81,6 +84,9 @@ sketchybar --add item clock right \
                        icon.color=0xff89b4fa \
                        label.color=0xffcdd6f4 \
            --set clock script="$HOME/.config/sketchybar/plugins/clock.sh"
+
+# Start sketchybar-toggle daemon to coordinate with native menu bar
+sketchybar-toggle &
 
 # Update all items on startup
 sketchybar --update

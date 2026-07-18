@@ -55,3 +55,8 @@ tap "felixkratz/formulae"
 brew "sketchybar"
 cask "font-sketchybar-app-font"
 
+# Auto-hide utility for Sketchybar
+tap "malpern/tap"
+brew "sketchybar-toggle"
+
+
