@@ -10,7 +10,6 @@ brew "diff-so-fancy"
 brew "git"
 
 # Terminal emulator
-cask "ghostty"
 cask "wezterm"
 
 # Editor
@@ -20,9 +19,10 @@ cask "antigravity-cli"
 cask "visual-studio-code"
 
 # Development tools
+brew "herdr"
 brew "jq"
 brew "tree"
-cask "docker-desktop"
+cask "orbstack"
 
 # Password manager
 brew "bitwarden-cli"
@@ -34,6 +34,7 @@ cask "zen"
 cask "google-chrome"
 cask "adguard"
 cask "google-drive"
+cask "logi-options+"
 
 # Zsh plugins
 brew "fzf"

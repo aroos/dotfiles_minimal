@@ -1,19 +1,27 @@
 # AeroSpace Configuration
+config-version = 2
 
 # Start AeroSpace at login
 start-at-login = true
 
 # Window margins matching Catppuccin theme layout
-gaps.inner.horizontal = 8
-gaps.inner.vertical = 8
-gaps.outer.left = 8
-gaps.outer.bottom = 8
-gaps.outer.top = [ { monitor."built-in" = 45 }, 37 ] # Space for Sketchybar (built-in has notch)
-gaps.outer.right = 8
+gaps.inner.horizontal = 4
+gaps.inner.vertical = 4
+gaps.outer.left = 4
+gaps.outer.bottom = 4
+gaps.outer.top = [ { monitor."built-in" = 4 }, 36 ] # Space for Sketchybar (built-in has notch; external is height 32)
+gaps.outer.right = 4
 
 # Layouts
 default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
+
+# Run after AeroSpace startup to ensure all restored windows are correctly sorted.
+# Wait a few seconds for apps restored by macOS to launch, then re-apply window rules.
+after-startup-command = [
+    'exec-and-forget /bin/bash -c "sleep 3 && /opt/homebrew/bin/aerospace run-callback --for-every-window on-window-detected"',
+    'layout --workspace M --root h_accordion'
+]
 
 # Notify sketchybar when switching workspaces
 exec-on-workspace-change = [
@@ -21,8 +29,58 @@ exec-on-workspace-change = [
     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
 ]
 
-# Set focus follows mouse
-focus-follows-mouse = 'disabled'
+# Notify sketchybar when window focus changes (e.g. window open/close/move)
+on-focus-changed = [
+    'exec-and-forget sketchybar --trigger aerospace_workspace_change'
+]
+
+[focus-follows-mouse]
+enabled = false
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.google.antigravity'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.google.antigravity-ide'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+# Catch-all: Move any other app window to workspace 5
+if = 'true'
+run = 'move-node-to-workspace 5'
 
 [mode.main.binding]
 # Focus window (Vim directions)
@@ -52,10 +110,6 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
 
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-b = 'move-node-to-workspace B'
@@ -66,53 +120,23 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+alt-tab = 'workspace-back-and-forth'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
 
 # Reload config
 alt-shift-r = 'reload-config'
 
-# ----------------- Window Rules & Routing -----------------
+[workspace-to-monitor-force-assignment]
+B = ['secondary', 'built-in']
+C = ['secondary', 'built-in']
+T = ['secondary', 'built-in']
+1 = ['secondary', 'built-in']
+2 = ['secondary', 'built-in']
+3 = ['secondary', 'built-in']
+4 = ['secondary', 'built-in']
+5 = ['secondary', 'built-in']
 
-# Float macOS System Settings
-[[on-window-detect]]
-if.app-id = 'com.apple.systempreferences'
-run = 'layout floating'
-
-# Route Terminals to Workspace T
-[[on-window-detect]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace T'
-
-[[on-window-detect]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace T'
-
-# Route Browsers to Workspace B
-[[on-window-detect]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace B'
-
-[[on-window-detect]]
-if.app-id = 'app.zen-browser.zen'
-run = 'move-node-to-workspace B'
-
-# Route Editors to Workspace C
-[[on-window-detect]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace C'
-
-[[on-window-detect]]
-if.app-id = 'com.google.antigravity'
-run = 'move-node-to-workspace C'
-
-[[on-window-detect]]
-if.app-id = 'com.google.antigravity-ide'
-run = 'move-node-to-workspace C'
-
-# Route Mail to Workspace M
-[[on-window-detect]]
-if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace M'

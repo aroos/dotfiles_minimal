@@ -23,7 +23,7 @@ config.window_padding = {
 
 -- Tab Bar
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 
@@ -51,11 +51,11 @@ config.audible_bell = 'Disabled'
 
 
 -- 2. Developer Keymaps (Tmux-like workflow)
-config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1500 }
 
 config.keys = {
   -- Split Panes
-  { key = '|', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = '\\', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
   { key = '-', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = 'x', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
 
@@ -83,7 +83,7 @@ config.keys = {
 -- 3. Visual Leader Key Indicator
 wezterm.on('update-right-status', function(window, pane)
   local leader = ""
-  if window:leader_active() then
+  if window:leader_is_active() then
     leader = " 👑 LEADER "
   end
   window:set_right_status(wezterm.format {
