@@ -19,7 +19,6 @@ cask "antigravity-cli"
 cask "visual-studio-code"
 
 # Development tools
-brew "herdr"
 brew "jq"
 brew "tree"
 cask "orbstack"
