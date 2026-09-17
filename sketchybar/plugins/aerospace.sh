@@ -31,7 +31,7 @@ fi
 
 # Set display label and background colors
 if [ "$INDEX" = "$FOCUSED_WORKSPACE" ]; then
-  sketchybar --set $NAME background.color=0xffcba6f7 icon.color=0xff11111b label.color=0xff11111b label="$icon_strip"
+  sketchybar --set $NAME background.color=0xffa6e3a1 icon.color=0xff11111b label.color=0xff11111b label="$icon_strip"
 else
   sketchybar --set $NAME background.color=0xff181825 icon.color=0xffa6adc8 label.color=0xffa6adc8 label="$icon_strip"
 fi

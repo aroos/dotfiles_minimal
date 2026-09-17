@@ -34,6 +34,7 @@ cask "google-chrome"
 cask "adguard"
 cask "google-drive"
 cask "logi-options+"
+cask "nordvpn"
 
 # Zsh plugins
 brew "fzf"
