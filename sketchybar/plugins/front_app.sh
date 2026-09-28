@@ -1,37 +1,11 @@
 #!/bin/bash
 
-# Display the frontmost app name and an appropriate Nerd Font icon
+# Display the frontmost app name and its sketchybar-app-font icon
 # $INFO is passed as an env var containing the name of the focused app
 
-case "$INFO" in
-  "WezTerm"|"Ghostty"|"Alacritty"|"Terminal"|"iTerm2")
-    ICON=""
-    ;;
-  "Google Chrome"|"Safari"|"Zen"|"Arc"|"Firefox")
-    ICON=""
-    ;;
-  "Visual Studio Code"|"VSCode"|"Cursor"|"Neovim"|"Xcode")
-    ICON="󰨞"
-    ;;
-  "Finder")
-    ICON="󰀶"
-    ;;
-  "Slack")
-    ICON=""
-    ;;
-  "Discord")
-    ICON="󰙯"
-    ;;
-  "Spotify"|"Music")
-    ICON=""
-    ;;
-  "System Settings")
-    ICON=""
-    ;;
-  *)
-    # Default window icon
-    ICON=""
-    ;;
-esac
+source "$HOME/.config/sketchybar/icon_map.sh"
 
-sketchybar --set $NAME icon="$ICON" label="$INFO"
+__icon_map "$INFO"
+
+sketchybar --set "$NAME" icon="$icon_result" label="$INFO"
+
