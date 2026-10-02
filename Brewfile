@@ -35,6 +35,7 @@ cask "adguard"
 cask "google-drive"
 cask "logi-options+"
 cask "nordvpn"
+cask "crisp"
 
 # Zsh plugins
 brew "fzf"
